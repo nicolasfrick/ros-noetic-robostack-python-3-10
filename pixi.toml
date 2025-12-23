@@ -5,20 +5,21 @@ version = "0.6.0"
 description = "RoboStack repo to package ros-noetic packages as conda packages"
 authors = ["Tobias Fischer <tobias.fischer@qut.edu.au>", "Wolf Vollprecht <w.vollprecht@gmail.com>", "Silvio Traversaro <silvio@traversaro.it>"]
 channels = ["https://repo.prefix.dev/conda-forge"]
-platforms = ["osx-arm64", "linux-64", "osx-64", "linux-aarch64", "win-64"]
+# platforms = ["osx-arm64", "linux-64", "osx-64", "linux-aarch64", "win-64"]
+platforms = ["linux-64"]
 
 [system-requirements]
 # 2.17 is the glibc version used in centos 7
 libc = { family="glibc", version="2.17" }
 
 [dependencies]
-python = ">=3.11.0,<3.12"
+python = "==3.10"
 rattler-build = ">=0.33.2"
 anaconda-client = ">=1.12"
 
-[target.win-64.dependencies]
+# [target.win-64.dependencies]
 # git is required by rattler-build
-git = "*"
+# git = "*"
 
 [pypi-dependencies]
 # This is tipically the latest commit on main branch
@@ -31,22 +32,24 @@ vinca = { git ="https://github.com/RoboStack/vinca.git", rev = "8c56fc3e47a988f1
 generate-recipes = { cmd = "vinca -m", depends-on = ["rename-file"] }
 remove-file = { cmd = "rm vinca.yaml; rm -rf recipes" }
 copy_additional_recipes = { cmd = "sh -c 'find additional_recipes/* -maxdepth 0 -type d -exec ln -s ../{} recipes/ \\;'" }
-build = { cmd = "rattler-build build --recipe-dir ./recipes -m ./conda_build_config.yaml -c robostack-staging -c https://repo.prefix.dev/conda-forge --skip-existing", depends-on = ["generate-recipes", "copy_additional_recipes"] }
-build_one_package = { cmd = "cp ./patch/$PACKAGE.*patch ./recipes/$PACKAGE/patch/; rattler-build build --recipe ./recipes/$PACKAGE/recipe.yaml -m ./conda_build_config.yaml -c robostack-staging -c https://repo.prefix.dev/conda-forge", env = { PACKAGE = "ros-noetic-ros-base" } }
+# build = { cmd = "rattler-build build --recipe-dir ./recipes -m ./conda_build_config.yaml -c robostack-staging -c https://repo.prefix.dev/conda-forge --skip-existing", depends-on = ["generate-recipes", "copy_additional_recipes"] }
+build = { cmd = "rattler-build build --recipe-dir ./recipes -m ./conda_build_config.yaml --channel-priority disabled -c robostack-staging -c https://repo.prefix.dev/conda-forge --skip-existing", depends-on = ["generate-recipes", "copy_additional_recipes"] }
+build_one_package = { cmd = "cp ./patch/$PACKAGE.*patch ./recipes/$PACKAGE/patch/; rattler-build build --recipe ./recipes/$PACKAGE/recipe.yaml -m ./conda_build_config.yaml --channel-priority disabled -c robostack-staging -c https://repo.prefix.dev/conda-forge", env = { PACKAGE = "ros-noetic-ros-base" } }
+
 create_snapshot = { cmd = "vinca-snapshot -d noetic -o snapshot_$(date +\"%Y-%m-%d-%H-%M-%S\").yaml" }
 upload = "anaconda -t $ANACONDA_API_TOKEN upload"
 
 [target.linux-64.tasks]
 rename-file = { cmd = "ln -s vinca_linux_64.yaml vinca.yaml", depends-on = ["remove-file"] }
 
-[target.osx-64.tasks]
-rename-file = { cmd = "ln -s vinca_osx.yaml vinca.yaml", depends-on = ["remove-file"] }
+# [target.osx-64.tasks]
+# rename-file = { cmd = "ln -s vinca_osx.yaml vinca.yaml", depends-on = ["remove-file"] }
 
-[target.osx-arm64.tasks]
-rename-file = { cmd = "ln -s vinca_osx_arm64.yaml vinca.yaml", depends-on = ["remove-file"] }
+# [target.osx-arm64.tasks]
+# rename-file = { cmd = "ln -s vinca_osx_arm64.yaml vinca.yaml", depends-on = ["remove-file"] }
 
-[target.linux-aarch64.tasks]
-rename-file = { cmd = "ln -s vinca_linux_aarch64.yaml vinca.yaml", depends-on = ["remove-file"] }
+# [target.linux-aarch64.tasks]
+# rename-file = { cmd = "ln -s vinca_linux_aarch64.yaml vinca.yaml", depends-on = ["remove-file"] }
 
-[target.win-64.tasks]
-rename-file = { cmd = "cp vinca_win.yaml vinca.yaml", depends-on = ["remove-file"] }
+# [target.win-64.tasks]
+# rename-file = { cmd = "cp vinca_win.yaml vinca.yaml", depends-on = ["remove-file"] }

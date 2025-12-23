@@ -1,5 +1,6 @@
 ros_distro: noetic
-mutex_package: ros-distro-mutex 0.6.* noetic_*
+mutex_package: ros-distro-mutex 0.4.* noetic_*
+# mutex_package: ros-distro-mutex 0.6.* noetic_py310_*
 
 
 # mapping for package keys
@@ -8,7 +9,7 @@ conda_index:
   - packages-ignore.yaml
 
 # Reminder for next full rebuild, the next build number should be 24
-build_number: 18
+build_number: 24
 
 packages_skip_by_deps:
   - eigenpy
@@ -17,17 +18,19 @@ packages_skip_by_deps:
   - gtsam
   # - ros_core
   # - diagnostic_updater
+  - openni2_camera
+  - openni2_launch
 
 packages_remove_from_deps:
   - stage-ros
   - stage
   - kobuki-ftdi # needs too many patches for ftdi & usb
-  - openni2-camera
+  # - openni2-camera
   - libpointmatcher
   - roseus
   - jskeus
   # See https://github.com/RoboStack/ros-noetic/pull/507#issuecomment-2686401205
-  - rqt_web
+  # - rqt_web
   - webkit_dependency
 
 
@@ -38,7 +41,7 @@ build_in_own_azure_stage:
 
 skip_existing:
   # - https://conda.anaconda.org/robostack/
-  - https://conda.anaconda.org/robostack-staging/
+  # - https://conda.anaconda.org/robostack-staging/
 
 # This list contains lots of commented-out package names. That is okay.
 # Not all packages need to be rebuilt with every pull request.
@@ -104,8 +107,8 @@ packages_select_by_deps:
   - ackermann-msgs
   - fake-localization
   - realsense2-description
-  - openni2-camera
-  - openni2-launch
+  # - openni2-camera
+  # - openni2-launch
   - p2os_driver
 
   - desktop
@@ -124,7 +127,7 @@ packages_select_by_deps:
   - ros-controllers
   - imu-sensor-controller
   - ackermann-steering-controller
-  - rqt-gui
+  # - rqt-gui
   - velodyne-description
   - velodyne-simulator
   - effort-controllers
@@ -134,8 +137,8 @@ packages_select_by_deps:
   - turtlebot3-teleop
   - force-torque-sensor-controller
   - gripper-action-controller
-  - rqt-gui-cpp
-  - rqt-gui-py
+  # - rqt-gui-cpp
+  # - rqt-gui-py
   - mavros-msgs
   - mavros
   - libmavconn
@@ -143,7 +146,7 @@ packages_select_by_deps:
   - mavlink
   - kdl-parser-py
   - imu-tools
-  - rqt-controller-manager
+  # - rqt-controller-manager
   - dynamixel-sdk
   - hector-map-tools
   - hector-nav-msgs
@@ -175,7 +178,6 @@ packages_select_by_deps:
   - move-base
   - gmapping
   - simulators
-  - desktop_full
   - moveit-ros-move-group
   - moveit-ros-manipulation
   - moveit
@@ -209,7 +211,6 @@ packages_select_by_deps:
   - panda-moveit-config
   - moveit-ros-visualization
   - moveit-ros-planning-interface
-  - teb-local-planner
   - turtlebot3
   - turtlebot3-fake
   - librealsense2
@@ -217,13 +218,7 @@ packages_select_by_deps:
   - ur-msgs
   - rosdoc-lite
   - ros_numpy
-  - velodyne-description
-  - velodyne-simulator
-  - effort-controllers
-  - velocity-controllers
-  - turtlebot3-teleop
   - turtlebot3-simulations
-  - slam-toolbox
   - urg_node
   - urg_c
   - laser_proc
@@ -236,11 +231,11 @@ packages_select_by_deps:
   - husky-navigation
   - lanelet2
 
-  - ros-ign
-  - ros-ign-bridge 
-  - ros-ign-gazebo 
-  - ros-ign-gazebo-demos 
-  - ros-ign-image
+  # - ros-ign
+  # - ros-ign-bridge 
+  # - ros-ign-gazebo 
+  # - ros-ign-gazebo-demos 
+  # - ros-ign-image
 
   - lusb
   - socketcan-interface
@@ -262,7 +257,7 @@ packages_select_by_deps:
   - geodesy
   - aruco-ros
   - pr2-teleop
-  - rqt-ez-publisher
+  # - rqt-ez-publisher
   - slam-gmapping
 
   - velodyne
