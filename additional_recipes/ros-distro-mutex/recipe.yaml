@@ -3,10 +3,10 @@ package:
   version: 0.6.0
 
 build:
-  number: 1
+  number: 2
   # Note: keep in sync with build number
   # Cannot be done automatically, see https://github.com/mamba-org/boa/issues/278
-  string: noetic_1
+  string: noetic_2
 
 requirements:
   # NOTE:
@@ -34,7 +34,7 @@ requirements:
     - libboost-devel 1.86.*
     - pcl 1.14.1.*
     - gazebo 11.*
-    - libprotobuf 5.28.3.*
+    # - libprotobuf 5.28.3.*
     - ogre 1.10.12.*
 
 

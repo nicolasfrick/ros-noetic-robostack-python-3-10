@@ -5,31 +5,45 @@ ogre:
 setuptools:
   - 69
 numpy:
-  - 1.26
+  - 1.25.*
 libprotobuf:
-  - 5.28.3
+  - 5.28.*
 protobuf:
-  - 5.28.3
+  - 5.28.*
 spdlog:
   - 1.14
+qt_main:
+  - 5.15.*
 pyqt:
-  - 5.15
+  - 5.15.*
 pyqtwebengine:
-  - 5.15
+  - 5.*
 pyqtchart:
-  - 5.15
+  - 5.*
 tinyxml2:
-  - 10.0
+  - 9.*
 cmake:
   - 3.*
 libopencv:
-  - 4.10.0
+  - 4.8.*
+opencv:
+  - 4.8.*
+ffmpeg:
+  - 6.*
+libxml2:
+  - 2.13.*
+icu:
+  - 74.*
+graphviz:
+  - 8.*
+sip:
+  - 6.*
 
 cdt_name:
   - ${{ "cos7" if linux }}
 
 python:
-  - 3.11.* *_cpython
+  - 3.10.15 *_cpython
 python_impl:
   - cpython
 
@@ -57,4 +71,3 @@ cxx_compiler:
 cxx_compiler_version:          # [unix]
   - 13                         # [linux]
   - 18                         # [osx]
-

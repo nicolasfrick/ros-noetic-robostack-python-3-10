@@ -13,7 +13,7 @@ platforms = ["linux-64"]
 libc = { family="glibc", version="2.17" }
 
 [dependencies]
-python = "==3.10"
+python = "==3.10.15"
 rattler-build = ">=0.33.2"
 anaconda-client = ">=1.12"
 
@@ -30,12 +30,13 @@ vinca = { git ="https://github.com/RoboStack/vinca.git", rev = "8c56fc3e47a988f1
 
 [tasks]
 generate-recipes = { cmd = "vinca -m", depends-on = ["rename-file"] }
-remove-file = { cmd = "rm vinca.yaml; rm -rf recipes" }
+remove-file = { cmd = "rm vinca.yaml; rm -rf recipes; rm -rf ~/.cache/rattler/cache; rm -rf output" }
 copy_additional_recipes = { cmd = "sh -c 'find additional_recipes/* -maxdepth 0 -type d -exec ln -s ../{} recipes/ \\;'" }
-# build = { cmd = "rattler-build build --recipe-dir ./recipes -m ./conda_build_config.yaml -c robostack-staging -c https://repo.prefix.dev/conda-forge --skip-existing", depends-on = ["generate-recipes", "copy_additional_recipes"] }
-build = { cmd = "rattler-build build --recipe-dir ./recipes -m ./conda_build_config.yaml --channel-priority disabled -c robostack-staging -c https://repo.prefix.dev/conda-forge --skip-existing", depends-on = ["generate-recipes", "copy_additional_recipes"] }
-build_one_package = { cmd = "cp ./patch/$PACKAGE.*patch ./recipes/$PACKAGE/patch/; rattler-build build --recipe ./recipes/$PACKAGE/recipe.yaml -m ./conda_build_config.yaml --channel-priority disabled -c robostack-staging -c https://repo.prefix.dev/conda-forge", env = { PACKAGE = "ros-noetic-ros-base" } }
-
+build_clean = { cmd = "rattler-build build --continue-on-failure --recipe-dir ./recipes -m ./conda_build_config.yaml --channel-priority disabled -c robostack-staging -c https://repo.prefix.dev/conda-forge", depends-on = ["generate-recipes", "copy_additional_recipes"] }
+build = { cmd = "rattler-build build --continue-on-failure --recipe-dir ./recipes -m ./conda_build_config.yaml --channel-priority disabled -c robostack-staging -c https://repo.prefix.dev/conda-forge --skip-existing" }
+build_ros_distro_mutex = { cmd = "rattler-build build --recipe ./recipes/ros-distro-mutex/recipe.yaml -m ./conda_build_config.yaml --channel-priority disabled -c robostack-staging -c https://repo.prefix.dev/conda-forge --skip-existing", depends-on = ["generate-recipes", "copy_additional_recipes"] }
+build_one_package = { cmd = "cp ./patch/$PACKAGE.*patch ./recipes/$PACKAGE/patch/; rattler-build build --up-to $PACKAGE --recipe-dir ./recipes -m ./conda_build_config.yaml --channel-priority disabled -c robostack-staging -c https://repo.prefix.dev/conda-forge --skip-existing"}
+build_one_package_clean = { cmd = "cp ./patch/$PACKAGE.*patch ./recipes/$PACKAGE/patch/; rattler-build build --up-to $PACKAGE --recipe-dir ./recipes -m ./conda_build_config.yaml --channel-priority disabled -c robostack-staging -c https://repo.prefix.dev/conda-forge", depends-on = ["build_ros_distro_mutex"] }
 create_snapshot = { cmd = "vinca-snapshot -d noetic -o snapshot_$(date +\"%Y-%m-%d-%H-%M-%S\").yaml" }
 upload = "anaconda -t $ANACONDA_API_TOKEN upload"
 

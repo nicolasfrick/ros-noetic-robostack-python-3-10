@@ -1,3 +1,21 @@
+# Fork of ![Robostack Repository](https://github.com/RoboStack/ros-noetic)
+
+## Downgrades python version to 3.10 for isaac-sim 4.5.0 compatibility 
+
+- start env shell
+    ~/.pixi/bin/pixi shell --manifest-path ~/ros-noetic/pixi.toml
+
+- build all
+    pixi run create_snapshot # run once
+    rm -rf ~/.cache/rattler/cache output/ && pixi run remove-file && pixi clean
+    pixi run build
+
+- single tasks
+    pixi run generate-recipes
+    pixi run copy_additional_recipes
+    pixi run build_one_package
+
+
 # RoboStack (for ROS Noetic)
 [![Conda](https://img.shields.io/conda/dn/robostack/ros-noetic-desktop?style=flat-square)](https://anaconda.org/robostack/)
 [![Gitter](https://img.shields.io/gitter/room/RoboStack/Lobby?style=flat-square)](https://gitter.im/RoboStack/Lobby)

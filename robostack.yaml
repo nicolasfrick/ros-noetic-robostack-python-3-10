@@ -733,7 +733,7 @@ python-rospkg-modules:
 python-setuptools:
   robostack: [setuptools]
 python-sip:
-  robostack: [sip 6.7.*]
+  robostack: [sip 6.*]
 python-six:
   robostack: [six]
 python-slacker-cli:
@@ -904,9 +904,9 @@ python3-pytest-mock:
 python3-pytest-timeout:
   robostack: [pytest-timeout]
 python3-qt5-bindings:
-  robostack: [pyqt, pyqt-builder]
+  robostack: [pyqt 5.15.*, pyqt5-sip, sip 6.*]
 python3-qt5-bindings-gl:
-  robostack: [pyqt, pyqt-builder]
+  robostack: [pyqt 5.15.*, pyqt5-sip, sip 6.*]
 python3-qt5-bindings-webkit:
   robostack: [pyqtwebengine]
 python3-requests:

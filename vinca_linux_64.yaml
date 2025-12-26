@@ -1,6 +1,5 @@
 ros_distro: noetic
-mutex_package: ros-distro-mutex 0.4.* noetic_*
-# mutex_package: ros-distro-mutex 0.6.* noetic_py310_*
+mutex_package: ros-distro-mutex 0.6.* noetic_*
 
 
 # mapping for package keys
