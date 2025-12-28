@@ -5,15 +5,31 @@
 - start env shell
     ~/.pixi/bin/pixi shell --manifest-path ~/ros-noetic/pixi.toml
 
-- build all
-    pixi run create_snapshot # run once
-    rm -rf ~/.cache/rattler/cache output/ && pixi run remove-file && pixi clean
-    pixi run build
+- create ROS package snapshot
+    pixi run create_snapshot
 
-- single tasks
-    pixi run generate-recipes
-    pixi run copy_additional_recipes
-    pixi run build_one_package
+- build all with recipe initialization
+    pixi run build_clean
+
+- single tasks with recipe initialization and dependency build
+    pixi run build_one_package_clean
+
+- log
+    mkdir -p logs
+    pixi run build_one_package > ./logs/$PACKAGE.log 2>&1
+
+- search packages
+    conda search -c robostack <package-name> 
+
+    \# add --override-channels to avoid pulling defaults/conda-forge noise
+
+    \# add --platform linux-64 to check platform availability
+    
+    pixi search <package-name> -c robostack -c robostack-staging # use build system
+
+    conda config --show channels # check offline/ cached
+
+    conda search -c robostack <package-name> --platform linux-64
 
 
 # RoboStack (for ROS Noetic)

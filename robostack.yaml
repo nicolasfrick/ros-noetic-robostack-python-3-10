@@ -904,9 +904,9 @@ python3-pytest-mock:
 python3-pytest-timeout:
   robostack: [pytest-timeout]
 python3-qt5-bindings:
-  robostack: [pyqt 5.15.*, pyqt5-sip, sip 6.*]
+  robostack: [pyqt 5.15.*, pyqt5-sip, sip 6.*, pyqt-builder]
 python3-qt5-bindings-gl:
-  robostack: [pyqt 5.15.*, pyqt5-sip, sip 6.*]
+  robostack: [pyqt 5.15.*, pyqt5-sip, sip 6.*, pyqt-builder]
 python3-qt5-bindings-webkit:
   robostack: [pyqtwebengine]
 python3-requests:

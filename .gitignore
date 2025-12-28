@@ -9,3 +9,4 @@ recipes/
 .pixi
 *.egg-info
 output/
+logs/*
