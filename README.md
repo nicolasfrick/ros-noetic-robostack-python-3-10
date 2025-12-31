@@ -31,6 +31,44 @@
 
     conda search -c robostack <package-name> --platform linux-64
 
+## Failing pkgs
+
+- jsk-visualization
+- robot_body_filter
+- tf_static_publisher
+- moveit-servo
+- hector-gazebo-plugins
+- gazebo-ros-control
+- gazebo-plugins
+- moveit-ros-visualization
+- moveit-ros-planning-interface
+- husky-simulator
+- jsk_rqt_plugins
+- rviz_satellite
+- tile_map
+- multires_image
+- fkie_potree_rviz_plugin
+- fetch_open_auto_dock
+- cob_gazebo_plugins
+- dynamic_graph
+- dynamic_graph_python
+- dynamic_graph_tutorial
+- eml
+- ur_client_library
+- opencv_apps
+- image_view2
+- mapviz
+- behaviortree_cpp_v3
+- codec_image_transport
+- hector_gazebo_plugins
+- webots_ros
+- franka_control
+- libfranka
+- franka_visualization
+- franka_hw
+- franka_gripper
+- slam_karto
+
 
 # RoboStack (for ROS Noetic)
 [![Conda](https://img.shields.io/conda/dn/robostack/ros-noetic-desktop?style=flat-square)](https://anaconda.org/robostack/)

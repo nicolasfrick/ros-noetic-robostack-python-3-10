@@ -29,7 +29,7 @@ packages_remove_from_deps:
   - roseus
   - jskeus
   # See https://github.com/RoboStack/ros-noetic/pull/507#issuecomment-2686401205
-  # - rqt_web
+  - rqt_web
   - webkit_dependency
 
 
@@ -126,7 +126,7 @@ packages_select_by_deps:
   - ros-controllers
   - imu-sensor-controller
   - ackermann-steering-controller
-  # - rqt-gui
+  - rqt-gui
   - velodyne-description
   - velodyne-simulator
   - effort-controllers
@@ -136,8 +136,8 @@ packages_select_by_deps:
   - turtlebot3-teleop
   - force-torque-sensor-controller
   - gripper-action-controller
-  # - rqt-gui-cpp
-  # - rqt-gui-py
+  - rqt-gui-cpp
+  - rqt-gui-py
   - mavros-msgs
   - mavros
   - libmavconn
@@ -145,7 +145,7 @@ packages_select_by_deps:
   - mavlink
   - kdl-parser-py
   - imu-tools
-  # - rqt-controller-manager
+  - rqt-controller-manager
   - dynamixel-sdk
   - hector-map-tools
   - hector-nav-msgs
@@ -256,7 +256,7 @@ packages_select_by_deps:
   - geodesy
   - aruco-ros
   - pr2-teleop
-  # - rqt-ez-publisher
+  - rqt-ez-publisher
   - slam-gmapping
 
   - velodyne
@@ -1091,100 +1091,100 @@ packages_select_by_deps:
   # #
   # # DONE Linux
   # #
-  # - jsk_rqt_plugins
-  # - jsk_common_msgs
-  # - rviz_satellite
-  # - tile_map
-  # - multires_image
-  # - fkie_message_filters
-  # - fkie_potree_rviz_plugin
-  # - fkie_multimaster
-  # - fetch_open_auto_dock
-  # - fetch_tools
-  # - fetch_drivers
-  # - cob_gazebo_tools
-  # - cob_gazebo_worlds
-  # - cob_gazebo_plugins
-  # - cob_gazebo_objects
-  # - dynamic_graph
-  # - dynamic_graph_python
-  # - dynamic_graph_tutorial
-  # - eml
-  # - pose_base_controller
-  # - ur_client_library
-  # - robot_self_filter
-  # - trac_ik
-  # - opencv_apps
-  # - image_view2
-  # - explore_lite
-  # - marvelmind_nav
-  # - sob_layer
-  # - soem
-  # - willow_maps
-  # - ypspur_ros
-  # - zbar_ros
-  # - mapviz
-  # - tf2_web_republisher
-  # - fetch_ros
-  # - spacenav_node
-  # - hebi_cpp_api
-  # - panda_moveit_config
-  # - apriltag
-  # - apriltag_ros
-  # - behaviortree_cpp_v3
-  # - codec_image_transport
-  # - kdl_parser_py
-  # - velodyne_simulator
-  # - catkin
-  # - hector_gazebo_plugins
-  # - webots_ros
-  # - navigation
-  # - mavros
-  # - grid_map
-  # - cnpy
-  # - robot_localization
-  # - moveit_visual_tools
-  # - ros_core
-  # - rviz
-  # - desktop
-  # - desktop_full
-  # - franka_control
-  # - moveit
-  # - class_loader
-  # - imu_tools
-  # - velodyne
-  # - velodyne_pcl
-  # - perception_pcl
-  # - teb_local_planner
-  # - joy
-  # - libfranka
-  # - franka_visualization
-  # - franka_msgs
-  # - franka_description
-  # - franka_hw
-  # - franka_gripper
-  # - diagnostic_analysis
-  # - diagnostic_common_diagnostics
-  # - ros_control
-  # - ros_controllers
-  # - rviz_visual_tools
-  # - slam_karto
-  # - slam_toolbox
-  # - turtlebot3
-  # - cnpy
-  # - turtlebot3_fake
-  # - gmapping
-  # - interactive_marker_twist_server
-  # - teleop_twist_joy
-  # - twist_mux
-  # - pointgrey_camera_description
-  # - lms1xx
-  # - nmea_msgs
-  # - rosserial
-  # - nmea_navsat_driver
-  # - rosserial_server
-  # - robot_upstart
-  # - nmea_comms
+  - jsk_rqt_plugins
+  - jsk_common_msgs
+  - rviz_satellite
+  - tile_map
+  - multires_image
+  - fkie_message_filters
+  - fkie_potree_rviz_plugin
+  - fkie_multimaster
+  - fetch_open_auto_dock
+  - fetch_tools
+  - fetch_drivers
+  - cob_gazebo_tools
+  - cob_gazebo_worlds
+  - cob_gazebo_plugins
+  - cob_gazebo_objects
+  - dynamic_graph
+  - dynamic_graph_python
+  - dynamic_graph_tutorial
+  - eml
+  - pose_base_controller
+  - ur_client_library
+  - robot_self_filter
+  - trac_ik
+  - opencv_apps
+  - image_view2
+  - explore_lite
+  - marvelmind_nav
+  - sob_layer
+  - soem
+  - willow_maps
+  - ypspur_ros
+  - zbar_ros
+  - mapviz
+  - tf2_web_republisher
+  - fetch_ros
+  - spacenav_node
+  - hebi_cpp_api
+  - panda_moveit_config
+  - apriltag
+  - apriltag_ros
+  - behaviortree_cpp_v3
+  - codec_image_transport
+  - kdl_parser_py
+  - velodyne_simulator
+  - catkin
+  - hector_gazebo_plugins
+  - webots_ros
+  - navigation
+  - mavros
+  - grid_map
+  - cnpy
+  - robot_localization
+  - moveit_visual_tools
+  - ros_core
+  - rviz
+  - desktop
+  - desktop_full
+  - franka_control
+  - moveit
+  - class_loader
+  - imu_tools
+  - velodyne
+  - velodyne_pcl
+  - perception_pcl
+  - teb_local_planner
+  - joy
+  - libfranka
+  - franka_visualization
+  - franka_msgs
+  - franka_description
+  - franka_hw
+  - franka_gripper
+  - diagnostic_analysis
+  - diagnostic_common_diagnostics
+  - ros_control
+  - ros_controllers
+  - rviz_visual_tools
+  - slam_karto
+  - slam_toolbox
+  - turtlebot3
+  - cnpy
+  - turtlebot3_fake
+  - gmapping
+  - interactive_marker_twist_server
+  - teleop_twist_joy
+  - twist_mux
+  - pointgrey_camera_description
+  - lms1xx
+  - nmea_msgs
+  - rosserial
+  - nmea_navsat_driver
+  - rosserial_server
+  - robot_upstart
+  - nmea_comms
 
   ##
   # NOT RELEASED ON NOETIC...
