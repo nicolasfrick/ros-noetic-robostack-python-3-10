@@ -39,7 +39,7 @@ build_one_package = { cmd = "cp ./patch/$PACKAGE.*patch ./recipes/$PACKAGE/patch
 build_one_package_clean = { cmd = "cp ./patch/$PACKAGE.*patch ./recipes/$PACKAGE/patch/; rattler-build build --up-to $PACKAGE --recipe-dir ./recipes -m ./conda_build_config.yaml --channel-priority disabled -c robostack-staging -c https://repo.prefix.dev/conda-forge", depends-on = ["build_ros_distro_mutex"] }
 create_snapshot = { cmd = "vinca-snapshot -d noetic -o snapshot_$(date +\"%Y-%m-%d-%H-%M-%S\").yaml" }
 upload = "anaconda -t $ANACONDA_API_TOKEN upload"
-upload_packages = { cmd = "anaconda -t $ANACONDA_API_TOKEN upload --skip-existing --user $ANACONDA_CHANNEL_NAME output/linux-64/*.conda output/noarch/*.conda"}
+upload_packages = { cmd = "anaconda -t $ANACONDA_API_TOKEN upload --skip-existing --user $ANACONDA_CHANNEL_NAME output/linux-64/*.conda"}
 
 [target.linux-64.tasks]
 rename-file = { cmd = "ln -s vinca_linux_64.yaml vinca.yaml", depends-on = ["remove-file"] }
