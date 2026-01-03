@@ -40,6 +40,7 @@ build_one_package_clean = { cmd = "cp ./patch/$PACKAGE.*patch ./recipes/$PACKAGE
 create_snapshot = { cmd = "vinca-snapshot -d noetic -o snapshot_$(date +\"%Y-%m-%d-%H-%M-%S\").yaml" }
 upload = "anaconda -t $ANACONDA_API_TOKEN upload"
 upload_packages = { cmd = "anaconda -t $ANACONDA_API_TOKEN upload --skip-existing --user $ANACONDA_CHANNEL_NAME output/linux-64/*.conda"}
+upload_package = { cmd = "anaconda -t $ANACONDA_API_TOKEN upload --user $ANACONDA_CHANNEL_NAME --force output/linux-64/$PACKAGE*.conda"}
 
 [target.linux-64.tasks]
 rename-file = { cmd = "ln -s vinca_linux_64.yaml vinca.yaml", depends-on = ["remove-file"] }
