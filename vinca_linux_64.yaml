@@ -10,11 +10,6 @@ conda_index:
 # Reminder for next full rebuild, the next build number should be 24
 build_number: 24
 
-build_env:
-  - OpenCL_FOUND=OFF
-  - OPENCL_INCLUDE_DIR=
-  - OPENCL_LIBRARY=
-
 packages_skip_by_deps:
   - eigenpy
   - hpp-fcl
