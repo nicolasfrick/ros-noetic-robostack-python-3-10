@@ -19,6 +19,7 @@ packages_skip_by_deps:
   # - diagnostic_updater
   - openni2_camera
   - openni2_launch
+  - cv_bridge
 
 packages_remove_from_deps:
   - stage-ros

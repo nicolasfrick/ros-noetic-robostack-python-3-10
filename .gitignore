@@ -10,3 +10,5 @@ recipes/
 *.egg-info
 output/
 logs/*
+!additional_recipes/ros-noetic-cv-bridge/bld_catkin.bat
+!additional_recipes/ros-noetic-cv-bridge/build_catkin.sh
